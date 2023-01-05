@@ -1,0 +1,50 @@
+.w-i{
+  width: 500px;
+}
+
+.f-b{
+  width: 100px;
+  border-radius: 5px;
+}
+
+#move_button{
+  animation: move;
+  animation-duration: 2.5s;
+}
+
+#move_search{
+  animation: move_down;
+  animation-duration: 2.5s;
+}
+
+@keyframes move_down {
+  0%{
+    transform: translateY(-50px);
+    opacity: 0%;
+  }
+
+  25%{
+    transform: translateY(-50px);
+    opacity: 0%;
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+@keyframes move {
+  0%{
+    transform: translateX(-50px);
+    opacity: 0%;
+  }
+
+  25%{
+    transform: translateX(-50px);
+    opacity: 0%;
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}

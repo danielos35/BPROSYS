@@ -1,0 +1,12 @@
+.con{
+  animation: appear;
+  animation-duration: 2s;
+}
+@keyframes appear {
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}

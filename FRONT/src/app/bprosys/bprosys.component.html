@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row mt-5">
+
+      <div id="move_search" class="mt-5">
+        <mat-form-field class="example-full-width w-i">
+          <mat-label>Ingrese numero de documento</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="PE-122-212-121"
+            [formControl]="inputCedula"
+            >
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div id="move_button" class="col">
+        <a mat-fab extended color="primary" class="m-2 f-b" style="background:#0B8C07;" [disabled]="buttonDisable" (click)="getData()">
+          <mat-icon>search</mat-icon>
+          Buscar
+        </a>
+
+        <button mat-fab extended color="warn" style="background:#0083D9;" class="m-2 f-b" (click)="resetData()">
+          <mat-icon>refresh</mat-icon>
+          Eliminar
+        </button>
+      </div>
+  </div>
+
+  <div class="row">
+    <ng-container *ngIf="data.length > 0">
+      <app-table-bprosys [dataTable]="data"></app-table-bprosys>
+    </ng-container>
+
+    <ng-container  style="transition: 2s;" *ngIf="noFound">
+        <app-no-found></app-no-found>
+    </ng-container>
+  </div>
+
+</div>
+
+<ngx-spinner bdColor="rgba(242,242,242)" size="medium" color="#0B8C07" type="square-jelly-box" [fullScreen]="true" ><p style="color: #0B8C07" > {{statusSpinner}} </p></ngx-spinner>
+

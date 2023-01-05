@@ -1,0 +1,72 @@
+<div class="con">
+  <div class="row mt-5">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Buscar datos</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 pb-2 mt-1 mb-5" style="padding-bottom: 10px; width: 100%; border-radius: 5px;">
+    <ng-container matColumnDef="Cedula">
+      <th class="text-center" mat-header-cell *matHeaderCellDef> Cedula </th>
+      <td mat-cell *matCellDef="let element; let i = index;">
+        <div class="card text-center m-1 id_style">
+          <div class="card-body">
+            <p class="card-text">{{element.Cedula}}</p>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nombre">
+      <th class="text-center" mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element; let i = index;">
+        <div class="card text-center m-5 m-1 no_border">
+          <div class="card-body">
+            <p class="card-text">{{element.Nombre}}</p>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="PIN">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>PIN</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="card text-center m-5 m-1 no_border">
+          <div class="card-body">
+            <p class="card-text">{{element.PIN}}</p>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Monto">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Monto</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="card text-center m-5 m-1 no_border">
+          <div class="card-body">
+            <p class="card-text">{{element.Monto | currency}}</p>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Fecha">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="card text-center m-5 m-1 no_border">
+          <div class="card-body">
+            <p class="card-text">{{element.Fecha | date}}</p>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <h1>Total movimientos por usuario: {{total | currency}}</h1>
+</div>
